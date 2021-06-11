@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Form } from "semantic-ui-react";
-import { Segment, Loader, Dimmer } from "semantic-ui-react";
+import { Segment } from "semantic-ui-react";
 import axios from "axios";
+import Load from "./Load";
 
 function Users() {
   const [name, setName] = useState(null);
@@ -205,11 +206,7 @@ function Users() {
         {apiError === true ? <p>Some Error Occured !</p> : null}
         {response}
 
-        {loading === true ? (
-          <Dimmer active>
-            <Loader inverted>Loading....</Loader>
-          </Dimmer>
-        ) : null}
+        {loading === true ? <Load /> : null}
       </div>
     </>
   );
