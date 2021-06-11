@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form } from "semantic-ui-react";
-import { Segment } from "semantic-ui-react";
+import { Segment, Loader, Dimmer } from "semantic-ui-react";
 import axios from "axios";
 
 function Users() {
@@ -22,7 +22,9 @@ function Users() {
   const [apiError, setApierror] = useState(null);
   const [response, setResponse] = useState(null);
 
-  const submit = (e) => {
+  const [loading, setLoading] = useState(null);
+
+  const submit = async (e) => {
     if (
       ename === true &&
       ephone1 === true &&
@@ -34,9 +36,10 @@ function Users() {
       // API Call to store user Details
 
       console.log("Form is Correct");
+      setLoading(true);
 
-      axios
-        .post("http://localhost:800/storeuser", {
+      await axios
+        .post("http://localhost:808/storeuser", {
           username: name,
           emailid: email,
           mobno: phone1,
@@ -50,13 +53,16 @@ function Users() {
         .then((response) => {
           setApierror(false);
           setResponse(response.data);
+          setLoading(false);
         })
         .catch(() => {
           setApierror(true);
           setResponse(null);
+          setLoading(false);
         });
     } else {
       console.log("Form is incorrect");
+      setResponse(null);
     }
   };
 
@@ -198,6 +204,12 @@ function Users() {
 
         {apiError === true ? <p>Some Error Occured !</p> : null}
         {response}
+
+        {loading === true ? (
+          <Dimmer active>
+            <Loader inverted>Loading....</Loader>
+          </Dimmer>
+        ) : null}
       </div>
     </>
   );
