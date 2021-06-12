@@ -3,7 +3,7 @@ import "./page.css";
 export default function Login() {
   return (
     <div className="App-header" style={{ marginTop: "-4%" }}>
-      <Segment inverted className="login">
+      <Segment inverted style={{ borderRadius: "10px" }}>
         <Segment
           style={{
             backgroundColor: "#282c34",

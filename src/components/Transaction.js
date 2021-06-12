@@ -6,6 +6,14 @@ function Transaction() {
   const [name, setName] = useState(null);
   const [install, setInstall] = useState(null);
 
+  const [startDate, setStartDate] = useState(null);
+  const [endeDate, setEndDate] = useState(null);
+
+  let date = new Date(startDate);
+  console.log("Date 1 : " + date);
+
+  console.log(startDate);
+
   const month = [
     { key: 1, value: 1 },
     { key: 2, value: 2 },
@@ -43,7 +51,7 @@ function Transaction() {
   return (
     <>
       <div className="App-header">
-        <Segment inverted style={{ width: "70%" }}>
+        <Segment inverted style={{ width: "70%", borderRadius: "10px" }}>
           <Segment
             style={{
               backgroundColor: "#282c34",
@@ -88,7 +96,9 @@ function Transaction() {
                   placeholder="Start Date"
                   type="date"
                   name="phone1"
-                  onChange={(e) => {}}
+                  onChange={(e) => {
+                    setStartDate(e.target.value);
+                  }}
                 ></Form.Input>
                 <Form.Input
                   disabled

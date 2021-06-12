@@ -3,7 +3,10 @@ import { Form, Segment } from "semantic-ui-react";
 function UserDetails() {
   return (
     <div className="App-header">
-      <Segment inverted style={{ width: "60%", marginTop: "-4%" }}>
+      <Segment
+        inverted
+        style={{ width: "60%", marginTop: "-4%", borderRadius: "10px" }}
+      >
         <Segment
           style={{
             backgroundColor: "#282c34",

@@ -40,7 +40,7 @@ function Users() {
       setLoading(true);
 
       await axios
-        .post("http://localhost:808/storeuser", {
+        .post("http://localhost:8080/storeuser", {
           username: name,
           emailid: email,
           mobno: phone1,
@@ -70,7 +70,10 @@ function Users() {
   return (
     <>
       <div className="App-header">
-        <Segment inverted style={{ width: "80%", marginTop: "-4%" }}>
+        <Segment
+          inverted
+          style={{ width: "80%", marginTop: "-4%", borderRadius: "10px" }}
+        >
           <Segment
             style={{
               backgroundColor: "#282c34",
@@ -192,20 +195,34 @@ function Users() {
               </Form.Button>
             </Form>
           </Segment>
+          <center>
+            {ename === false ? (
+              <p style={{ color: "red" }}>Name is too Short</p>
+            ) : null}
+            {ephone1 === false ? (
+              <p style={{ color: "red" }}>Please Enter Proper Mobile Number</p>
+            ) : null}
+            {ephone2 === false ? (
+              <p style={{ color: "red" }}>
+                Please Enter Proper Alternet Mobile Number
+              </p>
+            ) : null}
+            {eadhar === false ? (
+              <p style={{ color: "red" }}>Please Enter Proper Aadhar Number</p>
+            ) : null}
+            {epan === false ? (
+              <p style={{ color: "red" }}>Please Enter Proper Pan Number</p>
+            ) : null}
+            {eaddress === false ? (
+              <p style={{ color: "red" }}>Address is too Short</p>
+            ) : null}
+
+            {apiError === true ? (
+              <p style={{ color: "red" }}>Some Error Occured !</p>
+            ) : null}
+            {response}
+          </center>
         </Segment>
-
-        {ename === false ? <p>Name is too Short</p> : null}
-        {ephone1 === false ? <p>Please Enter Proper Mobile Number</p> : null}
-        {ephone2 === false ? (
-          <p>Please Enter Proper Alternet Mobile Number</p>
-        ) : null}
-        {eadhar === false ? <p>Please Enter Proper Aadhar Number</p> : null}
-        {epan === false ? <p>Please Enter Proper Pan Number</p> : null}
-        {eaddress === false ? <p>Address is too Short</p> : null}
-
-        {apiError === true ? <p>Some Error Occured !</p> : null}
-        {response}
-
         {loading === true ? <Load /> : null}
       </div>
     </>
