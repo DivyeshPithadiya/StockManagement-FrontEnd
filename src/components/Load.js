@@ -1,7 +1,7 @@
 import { Loader, Dimmer } from "semantic-ui-react";
 function Load() {
   return (
-    <Dimmer active style={{ height: "100%" }}>
+    <Dimmer active>
       <Loader inverted>Loading....</Loader>
     </Dimmer>
   );

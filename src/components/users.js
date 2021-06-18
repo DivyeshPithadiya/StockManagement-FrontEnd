@@ -12,6 +12,7 @@ function Users() {
   const [adhar, setAdhar] = useState(null);
   const [pan, setPan] = useState(null);
   const [address, setAddress] = useState(null);
+  const [userType, setUserType] = useState(null);
 
   const [ename, seteName] = useState(null);
   const [ephone1, setePhone1] = useState(null);
@@ -25,6 +26,11 @@ function Users() {
 
   const [loading, setLoading] = useState(null);
 
+  const options = [
+    { key: 1, text: "Call-put", value: "call" },
+    { key: 2, text: "Stock", value: "stock" },
+  ];
+
   const submit = async (e) => {
     if (
       ename === true &&
@@ -32,7 +38,8 @@ function Users() {
       ephone2 === true &&
       eadhar === true &&
       epan === true &&
-      eaddress === true
+      eaddress === true &&
+      userType !== null
     ) {
       // API Call to store user Details
 
@@ -69,11 +76,8 @@ function Users() {
 
   return (
     <>
-      <div className="App-header">
-        <Segment
-          inverted
-          style={{ width: "80%", marginTop: "-4%", borderRadius: "10px" }}
-        >
+      <div className="App-header background-dim">
+        <Segment inverted style={{ width: "80%", borderRadius: "10px" }}>
           <Segment
             style={{
               backgroundColor: "#282c34",
@@ -181,6 +185,18 @@ function Users() {
                       : seteAddress(true);
                   }}
                 ></Form.Input>
+
+                <Form.Dropdown
+                  onChange={(e, val) => {
+                    setUserType(val.value);
+                    console.log(userType);
+                  }}
+                  search
+                  options={options}
+                  placeholder="Choose an User Type"
+                  selection
+                  //value={value}
+                />
               </Form.Group>
               <Form.Button
                 onClick={() => {
@@ -218,7 +234,9 @@ function Users() {
             ) : null}
 
             {apiError === true ? (
-              <p style={{ color: "red" }}>Some Error Occured !</p>
+              <p style={{ color: "red" }}>
+                Please Check Your Internet Connectivity !
+              </p>
             ) : null}
             {response}
           </center>

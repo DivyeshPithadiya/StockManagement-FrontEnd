@@ -50,7 +50,7 @@ function Transaction() {
 
   return (
     <>
-      <div className="App-header">
+      <div className="App-header background-dim">
         <Segment inverted style={{ width: "70%", borderRadius: "10px" }}>
           <Segment
             style={{
@@ -68,7 +68,7 @@ function Transaction() {
             <Form>
               <Form.Group widths="equal">
                 <Form.Dropdown
-                  aautoFocus
+                  autoFocus
                   onChange={(e, val) => {
                     setName(val.value);
                   }}
@@ -85,7 +85,7 @@ function Transaction() {
                   }}
                   search
                   options={options}
-                  placeholder="Choose an Installment Type"
+                  placeholder="Choose an Premium Type"
                   selection
                   //value={value}
                 />
@@ -106,7 +106,6 @@ function Transaction() {
                   type="date"
                   name="phone2"
                   placeholder="End Date"
-                  onChange={(e) => {}}
                 ></Form.Input>
               </Form.Group>
 

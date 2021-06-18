@@ -1,8 +1,8 @@
 import { Form, Segment } from "semantic-ui-react";
-import "./page.css";
+import "./css/page.css";
 export default function Login() {
   return (
-    <div className="App-header" style={{ marginTop: "-4%" }}>
+    <div className="App-header background-dim">
       <Segment inverted style={{ borderRadius: "10px" }}>
         <Segment
           style={{

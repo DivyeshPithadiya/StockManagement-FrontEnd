@@ -1,0 +1,73 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  /* background-color: #4d515a; */
+  background-size: 100% 100%;
+  size: "cover";
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  box-shadow: #797c85 5px;
+}
+
+.selector:hover {
+  background-color: #4d515a;
+  box-shadow: white 0px 0px 0.5px 0.5px;
+}
+
+.logo:hover {
+  background-color: white;
+  box-shadow: white 0px 0px 0.5px 0.5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login {
+  width: "40%";
+}
+
+.footer-css {
+  display: "flex";
+  justify-content: "space-between";
+  align-content: center;
+  color: "white";
+}
+
+.background-dim {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.background-dim1 {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+@media screen and (max-width: 400px) {
+  #logo1 {
+    width: 80px;
+    height: 80px;
+  }
+  #logo2 {
+    width: 100px;
+  }
+}
