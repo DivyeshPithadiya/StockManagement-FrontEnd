@@ -48,7 +48,20 @@ export default function Home() {
             ></iframe>
           </Card> */}
 
-          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+          <Segment
+            style={{
+              borderRadius: "5px",
+              padding: "2vh",
+              display: "flex",
+              justifyContent: "flex-end",
+              backgroundColor: "#002147",
+            }}
+          >
+            <div
+              style={{ color: "white", paddingRight: "15px", marginTop: "2px" }}
+            >
+              Follow Us On :
+            </div>
             <Icon
               className="logo"
               size="big"
@@ -97,7 +110,7 @@ export default function Home() {
                 />
               }
             />
-          </div>
+          </Segment>
         </div>
       </Segment>
     </div>
